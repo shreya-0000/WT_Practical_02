@@ -1,228 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Movie Ticket Booking</title>
-
-    <link rel="stylesheet" href="style.css">
-</head>
-
-<body>
-
-    <header>
-        <div class="header-content">
-            <h1>Movie Ticket Booking</h1>
-            <p>Book your favourite movie in a few simple steps</p>
-        </div>
-    </header>
-
-
-    <main class="container">
-
-        <section class="booking-form">
-
-            <h2>Book Your Ticket</h2>
-
-            <form id="bookingForm">
-
-                <div class="form-group">
-                    <label for="name">Customer Name</label>
-
-                    <input
-                        type="text"
-                        id="name"
-                        placeholder="Enter your name"
-                    >
-
-                    <span id="nameError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="email">Email</label>
-
-                    <input
-                        type="email"
-                        id="email"
-                        placeholder="Enter your email"
-                    >
-
-                    <span id="emailError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="phone">Phone Number</label>
-
-                    <input
-                        type="tel"
-                        id="phone"
-                        placeholder="Enter 10 digit phone number"
-                        maxlength="10"
-                    >
-
-                    <span id="phoneError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="movie">Select Movie</label>
-
-                    <select id="movie">
-
-                        <option value="">
-                            Select Movie
-                        </option>
-
-                        <option value="Avengers">
-                            Avengers
-                        </option>
-
-                        <option value="Interstellar">
-                            Interstellar
-                        </option>
-
-                        <option value="Inception">
-                            Inception
-                        </option>
-
-                        <option value="3 Idiots">
-                            3 Idiots
-                        </option>
-
-                        <option value="Dangal">
-                            Dangal
-                        </option>
-
-                    </select>
-
-                    <span id="movieError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="date">Booking Date</label>
-
-                    <input
-                        type="date"
-                        id="date"
-                    >
-
-                    <span id="dateError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="time">Show Time</label>
-
-                    <select id="time">
-
-                        <option value="">
-                            Select Show Time
-                        </option>
-
-                        <option value="10:00 AM">
-                            10:00 AM
-                        </option>
-
-                        <option value="1:00 PM">
-                            1:00 PM
-                        </option>
-
-                        <option value="4:00 PM">
-                            4:00 PM
-                        </option>
-
-                        <option value="7:00 PM">
-                            7:00 PM
-                        </option>
-
-                        <option value="10:00 PM">
-                            10:00 PM
-                        </option>
-
-                    </select>
-
-                    <span id="timeError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="tickets">Number of Tickets</label>
-
-                    <input
-                        type="number"
-                        id="tickets"
-                        min="1"
-                        max="10"
-                        placeholder="Enter number of tickets"
-                    >
-
-                    <span id="ticketsError" class="error"></span>
-                </div>
-
-
-                <div class="form-group">
-                    <label for="payment">Payment Method</label>
-
-                    <select id="payment">
-
-                        <option value="">
-                            Select Payment Method
-                        </option>
-
-                        <option value="UPI">
-                            UPI
-                        </option>
-
-                        <option value="Debit/Credit Card">
-                            Debit/Credit Card
-                        </option>
-
-                        <option value="Cash">
-                            Cash
-                        </option>
-
-                    </select>
-
-                    <span id="paymentError" class="error"></span>
-                </div>
-
-
-                <button type="submit">
-                    Book Ticket
-                </button>
-
-            </form>
-
-        </section>
-
-
-        <section class="booking-section">
-
-            <h2>Booking Details</h2>
-
-            <div id="bookingList"></div>
-
-            <p id="noBookings">
-                No bookings available.
-            </p>
-
-        </section>
-
-    </main>
-
-
-    <footer>
-        <p>© 2026 Movie Ticket Booking System</p>
-    </footer>
-
-
-    <script src="script.js"></script>
-
-</body>
-
-</html>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+header {
+    background-color: #222;
+    color: white;
+    padding: 35px 20px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 32px;
+    margin-bottom: 8px;
+}
+
+header p {
+    color: #ccc;
+}
+
+.container {
+    width: 90%;
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+.booking-form,
+.booking-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    margin-bottom: 20px;
+    color: #222;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 6px;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 11px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+    outline: none;
+    border-color: #333;
+}
+
+.error {
+    display: block;
+    color: #e74c3c;
+    font-size: 13px;
+    margin-top: 5px;
+    min-height: 15px;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 5px;
+    background-color: #222;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #444;
+}
+
+.booking-card {
+    border: 1px solid #ddd;
+    background-color: #fafafa;
+    border-radius: 7px;
+    padding: 18px;
+    margin-bottom: 15px;
+}
+
+.booking-card h3 {
+    color: #222;
+    margin-bottom: 12px;
+}
+
+.booking-card p {
+    margin: 7px 0;
+    color: #555;
+}
+
+.total {
+    font-size: 17px;
+    font-weight: bold;
+    color: #222 !important;
+    margin-top: 12px !important;
+}
+
+.cancel-btn {
+    width: auto;
+    background-color: #e74c3c;
+    padding: 8px 15px;
+    margin-top: 10px;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+}
+
+#noBookings {
+    text-align: center;
+    color: #888;
+    padding: 15px;
+}
+
+footer {
+    background-color: #222;
+    color: white;
+    text-align: center;
+    padding: 15px;
+    margin-top: 30px;
+}
+
+@media (max-width: 600px) {
+
+    .container {
+        width: 95%;
+    }
+
+    .booking-form,
+    .booking-section {
+        padding: 18px;
+    }
+
+    header h1 {
+        font-size: 26px;
+    }
+}
